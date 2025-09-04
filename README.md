@@ -1,66 +1,73 @@
-# 🧠 AI-Powered Resume Screening Tool
+# 🤖 AI-Powered Resume Screening Tool
 
-Automated resume parsing and ranking against a Job Description using **TF–IDF + cosine similarity** with an intuitive **Streamlit** UI.
+This project is a **Streamlit app** that automatically parses and ranks resumes against a given **Job Description (JD)** using **TF-IDF + cosine similarity**.  
 
-## ✨ Features
-- Upload multiple **PDF** resumes
-- Paste **Job Description** text
-- Extract **emails, phone**, heuristic **name**
-- **Skills matching** via custom vocabulary (+ optional spaCy PhraseMatcher)
-- **Rank candidates** by similarity score
-- **Export** ranked results to **CSV/Excel**
+It helps recruiters save time by quickly shortlisting the most relevant candidates.
+
+---
+
+## 🚀 Features
+- Upload multiple resumes (**PDF**, **DOCX**, **TXT**)
+- Paste a Job Description (JD) into the app
+- Rank resumes using **TF-IDF + cosine similarity**
+- Optional keyword coverage weighting
+- Extract quick facts:
+  - Degrees (B.Tech, MBA, LL.B., etc.)
+  - Years of experience
+- Preview resume text and matched JD keywords
+- Export results to **CSV** and **Excel**
+
+---
 
 ## 📂 Project Structure
-```
 .
 ├── app.py
 ├── requirements.txt
-├── sample_skills.txt
 ├── README.md
 ├── LICENSE
 └── .gitignore
-```
 
-## 🚀 Quickstart (Local)
-```bash
-# 1) (Optional) Create a virtual environment
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
 
-# 2) Install dependencies
+---
+
+## 📦 Tech Stack
+- Python  
+- Streamlit  
+- scikit-learn (TF-IDF + cosine similarity)  
+- PyPDF2, python-docx (resume parsing)  
+- pandas, openpyxl (data & export)  
+- pdfminer.six (optional PDF parsing)
+
+---
+
+## ⚙️ Installation & Running Locally
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/ai-resume-screener.git
+   cd ai-resume-screener
+   
+2. Install dependencies:
 pip install -r requirements.txt
 
-# 3) (Optional) Download spaCy model
-python -m spacy download en_core_web_sm
+3. Run the app:
+   streamlit run app.py
+4. Open your browser at:
+   http://localhost:8501
 
-# 4) Run
-streamlit run app.py
-```
+🛠 Usage
+1. Paste the Job Description into the text area.
+2. Upload one or more resumes (PDF, DOCX, or TXT).
+3. Adjust weights in the sidebar (TF-IDF vs Keyword coverage).
+4. Click 🚀 Rank Candidates.
+5. View the ranked list with scores, degrees, and years of experience.
+6. Download results as CSV or Excel.
+7. Preview individual resumes with highlighted keyword matches.
 
-## 🛠 Usage
-1. Paste the **Job Description** in the text area.
-2. Upload one or more **PDF resumes**.
-3. (Optional) Upload a custom **skills list** (`.txt`) separated by commas/newlines/semicolons.
-4. Click **Process & Rank Candidates**.
-5. Download **CSV/Excel** results.
+   📜 License
 
-## 🌐 Deploy to Streamlit Community Cloud (Free)
-1. Push this project to a **public GitHub repo**.
-2. Go to **streamlit.io** → **Sign in** → **New app** → Connect GitHub.
-3. Select your repo and branch; **Main file path:** `app.py`.
-4. Click **Deploy** → copy the app URL and add it to this README.
+This project is licensed under the MIT License.
 
-## 🧪 Tech Stack
-- Python, Streamlit, pandas, scikit-learn
-- TF–IDF vectorizer + cosine similarity
-- PDF parsing: PyPDF2 (+ pdfminer fallback)
-- Optional NLP: spaCy PhraseMatcher for skills
+🙏 Acknowledgments
 
-## 📜 License
-This project is licensed under the **MIT License** (see `LICENSE`).
-
-## 🙏 Acknowledgments
-Built for quick HR screening workflows; extend with embeddings, required-skill weighting, or richer parsing as needed.
+Built for quick HR screening workflows — extendable with embeddings, required-skill weighting, or richer parsing (OCR for scanned PDFs).
